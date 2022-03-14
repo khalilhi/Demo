@@ -9,11 +9,13 @@ namespace API.Controllers
     [Route("[controller]")]
     public class GlobalController : ControllerBase
     {
+        BookRepository rep = new BookRepository();
         [HttpGet]
         public IEnumerable<Book> Get(int id)
         {
-            var rep = new BookRepository();
-            return rep.GetBook(id);
+            return rep.GetBookByID(id);
         }
+
     }
+
 }
