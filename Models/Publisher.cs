@@ -10,9 +10,11 @@ namespace Models
             Books = new HashSet<Book>();
         }
 
-        public int Id { get; set; }
-        public string Name { get; set; }
+        public int PublisherId { get; set; }
+        public string PublisherName { get; set; }
+        public int? UtilisateurId { get; set; }
 
+        public virtual Utilisateur Utilisateur { get; set; }
         public virtual ICollection<Book> Books { get; set; }
     }
 }

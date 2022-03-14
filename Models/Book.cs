@@ -5,15 +5,24 @@ namespace Models
 {
     public partial class Book
     {
-        public int Id { get; set; }
-        public string Title { get; set; }
-        public string Description { get; set; }
-        public int AuthorId { get; set; }
-        public int PublisherId { get; set; }
-        public int LibraryId { get; set; }
+        public Book()
+        {
+            OrderLines = new HashSet<OrderLine>();
+            Authors = new HashSet<Author>();
+        }
 
-        public virtual Author Author { get; set; }
-        public virtual Library Library { get; set; } 
+        public int BookId { get; set; }
+        public string Title { get; set; }
+        public string Isbn13 { get; set; }
+        public int? LanguageId { get; set; }
+        public int? NumPages { get; set; }
+        public DateTime? PublicationDate { get; set; }
+        public int? PublisherId { get; set; }
+
+        public virtual BookLanguage Language { get; set; }
         public virtual Publisher Publisher { get; set; }
+        public virtual ICollection<OrderLine> OrderLines { get; set; }
+
+        public virtual ICollection<Author> Authors { get; set; }
     }
 }
