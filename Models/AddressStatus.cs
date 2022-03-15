@@ -6,6 +6,6 @@ namespace Models
     public partial class AddressStatus
     {
         public int StatusId { get; set; }
-        public string AddressStatus { get; set; }
+        public string AddressStatus1 { get; set; }
     }
 }
