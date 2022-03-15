@@ -86,7 +86,7 @@ namespace DAL.DBContext
                     .ValueGeneratedNever()
                     .HasColumnName("status_id");
 
-                entity.Property(e => e.AddressStatus1)
+                entity.Property(e => e.AddressStatus)
                     .HasMaxLength(30)
                     .IsUnicode(false)
                     .HasColumnName("address_status");
