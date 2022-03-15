@@ -25,7 +25,7 @@ namespace DAL.Repositories
             {
                 var _book = new AddressStatus();
                 _book.StatusId = book.StatusId;
-                _book.AddressStatus = book.AddressStatus;
+                _book.AddressStatus1 = book.AddressStatus1;
                 context.AddressStatuses.Add(_book);
                 context.SaveChanges();
 
@@ -47,7 +47,7 @@ namespace DAL.Repositories
             using (var context = new BookStoreContext())
             {
                 AddressStatus _book = context.AddressStatuses.Where(bk => bk.StatusId == book.StatusId).First();
-                _book.AddressStatus = book.AddressStatus;
+                _book.AddressStatus1 = book.AddressStatus1;
                 context.SaveChanges();
             }
         }
