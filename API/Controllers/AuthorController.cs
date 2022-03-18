@@ -7,34 +7,33 @@ namespace API.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class GlobalController : ControllerBase
+    public class AuthorController : ControllerBase
     {
-        BookRepository rep = new BookRepository();
+        AuthorRepository rep = new AuthorRepository();
         [HttpGet]
-        public IEnumerable<Book> Get(int id)
+        public IEnumerable<Author> Get(int id)
         {
-            return rep.GetBookByID(id);
+            return rep.GetAuthorByID(id);
         }
 
 
         [HttpPost]
-        public void add(Book _book)
+        public void add(Author _book)
         {
-            rep.AddBook(_book);
+            rep.AddAuthor(_book);
         }
 
         [HttpDelete]
 
         public void Remove(int id)
         {
-            rep.RemoveBook(id);
+            rep.RemoveAuthor(id);
         }
         [HttpPut]
-        public void Update(Book book)
+        public void Update(Author book)
         {
-            rep.UpdateBook(book);
+            rep.UpdateAuthor(book);
         }
 
     }
-
 }
