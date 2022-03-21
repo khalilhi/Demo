@@ -24,5 +24,16 @@ namespace Client
         {
             InitializeComponent();
         }
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            if (textBoxUser.Text == string.Empty)
+            {
+                ValidationLabel.Content = "Vous devez choisir un utilisateur *";
+            }
+            else if (PasswordBox.Password == string.Empty)
+            {
+                ValidationLabel.Content = "Vous devez choisir un mot de passe *";
+            }
+        }
     }
 }
