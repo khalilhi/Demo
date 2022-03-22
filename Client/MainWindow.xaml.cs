@@ -29,6 +29,7 @@ namespace Client
         public MainWindow()
         {
             InitializeComponent();
+
         }
         private async void Button_Click(object sender, RoutedEventArgs e)
         {
@@ -58,7 +59,10 @@ namespace Client
             }
             else
             {
-                ValidationLabel.Content = "";
+                var menu = new Menu();
+                menu.Show();
+                this.Close();
+                
             }
         }
 
