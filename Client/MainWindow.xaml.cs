@@ -31,15 +31,17 @@ namespace Client
             InitializeComponent();
 
         }
-        private async void Button_Click(object sender, RoutedEventArgs e)
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
             if (textBoxUser.Text == string.Empty)
             {
                 ValidationLabel.Content = "Vous devez choisir un utilisateur *";
+                textBoxUser.Focus();
             }
             else if (PasswordBox.Password == string.Empty)
             {
                 ValidationLabel.Content = "Vous devez choisir un mot de passe *";
+                PasswordBox.Focus();
             }
             else
             {

@@ -8,6 +8,10 @@
         Title="Login" Height="450" Width="800">
     <Grid>
         <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="119*"/>
+                <ColumnDefinition Width="41*"/>
+            </Grid.ColumnDefinitions>
             <TextBlock Height="56" HorizontalAlignment="Left" Margin="103,45,0,0" Name="LoginHeading" Text="Sign in" VerticalAlignment="Top" FontSize="35" FontStretch="ExtraCondensed" Width="141" Foreground="DarkGray" />
             <TextBlock Height="23" HorizontalAlignment="Left" Margin="103,116,0,0" Name="User" Text="Utilisateur" VerticalAlignment="Top" Width="67" Foreground="DarkGray" FontSize="13"/>
             <TextBlock Height="23" HorizontalAlignment="Left" Margin="103,178,0,0" Name="Password" Text="Mot de passe" VerticalAlignment="Top" Width="89" Foreground="DarkGray" FontSize="13"/>
@@ -20,8 +24,9 @@
                     </Style>
                 </Button.Resources>
             </Button>
-            <Line Stroke="DarkGray" StrokeThickness="3" X1="100" Y1="100" X2="400" Y2="100" ></Line>
+            <Line Stroke="DarkGray" StrokeThickness="3" X1="100" Y1="100" X2="400" Y2="100" Grid.ColumnSpan="2" ></Line>
             <Label Name="ValidationLabel" HorizontalAlignment="Left" Height="43" Margin="96,234,0,0" VerticalAlignment="Top" Width="248" Foreground="Red" FontSize="13"/>
+            <Image HorizontalAlignment="Left" Height="83"  VerticalAlignment="Top" Width="163" Source="/95f8588d6469a16271ea2d2fad419d00.png" Margin="249,14,0,0" Stretch="UniformToFill" StretchDirection="Both"/>
         </Grid>
     </Grid>
 </Window>

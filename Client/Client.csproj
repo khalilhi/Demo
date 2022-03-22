@@ -5,7 +5,16 @@
     <TargetFramework>net5.0-windows</TargetFramework>
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
+    <ApplicationIcon>webp_net_resizeimage_NoS_icon.ico</ApplicationIcon>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="95f8588d6469a16271ea2d2fad419d00.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="webp_net_resizeimage_NoS_icon.ico" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNet.WebApi.Client" Version="5.2.7" />
@@ -14,6 +23,10 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Models\Models.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="95f8588d6469a16271ea2d2fad419d00.png" />
   </ItemGroup>
 
 </Project>
