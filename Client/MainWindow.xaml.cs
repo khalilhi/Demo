@@ -1,7 +1,12 @@
-﻿using System;
+﻿using Models;
+using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -20,11 +25,12 @@ namespace Client
     /// </summary>
     public partial class MainWindow : Window
     {
+        HttpClient client= new HttpClient(); 
         public MainWindow()
         {
             InitializeComponent();
         }
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private async void Button_Click(object sender, RoutedEventArgs e)
         {
             if (textBoxUser.Text == string.Empty)
             {
@@ -34,6 +40,27 @@ namespace Client
             {
                 ValidationLabel.Content = "Vous devez choisir un mot de passe *";
             }
+            else
+            {
+                this.getUser();
+            }
+            
+
         }
+        private  async void getUser()
+        {
+            var responce = await  client.GetStringAsync("https://localhost:44348/Utilisateur?id="+textBoxUser.Text);
+            var User = JsonConvert.DeserializeObject<List<Utilisateur>>(responce);
+            //ValidationLabel.Content = User[0].FirstName;
+            if (User.Count==0 || User[0].MotPasse != PasswordBox.Password)
+            {
+                ValidationLabel.Content= "Utilisateur ou mot de passe incorrect ";
+            }
+            else
+            {
+                ValidationLabel.Content = "";
+            }
+        }
+
     }
 }

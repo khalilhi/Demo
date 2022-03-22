@@ -10,13 +10,14 @@ namespace API.Controllers
     public class UtilisateurController : ControllerBase
     {
         UtilisateurRepository rep = new UtilisateurRepository();
+        /*
         [HttpGet]
         public IEnumerable<Utilisateur> Get(int id)
         {
             return rep.GetUtilisateurByID(id);
         }
 
-
+        */
         [HttpPost]
         public void add(Utilisateur _book)
         {
@@ -33,6 +34,11 @@ namespace API.Controllers
         public void Update(Utilisateur book)
         {
             rep.UpdateUtilisateur(book);
+        }
+        [HttpGet]
+        public IEnumerable<Utilisateur> GetByname(string id)
+        {
+            return rep.GetUtilisateurByIname(id);
         }
     }
 }

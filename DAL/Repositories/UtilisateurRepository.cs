@@ -66,5 +66,12 @@ namespace DAL.Repositories
                 context.SaveChanges();
             }
         }
+        public IEnumerable<Utilisateur> GetUtilisateurByIname(string id)
+        {
+            using (var context = new BookStoreContext())
+            {
+                return context.Utilisateurs.Where(book => book.FirstName == id).ToList();
+            }
+        }
     }
 }
