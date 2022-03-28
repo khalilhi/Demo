@@ -26,7 +26,6 @@ namespace Client
     /// </summary>
     public partial class MainWindow : Window
     {
-        HttpClient client= new HttpClient(); 
         public MainWindow()
         {
             InitializeComponent();
@@ -39,12 +38,12 @@ namespace Client
             var pass = PasswordBox.Password;
             var res = await lg.GetUser(id, pass); 
 
-            if (textBoxUser.Text == string.Empty)
+            if (id == string.Empty)
             {
                 ValidationLabel.Content = "Vous devez choisir un utilisateur *";
                 textBoxUser.Focus();
             }
-            else if (PasswordBox.Password == string.Empty)
+            else if (pass == string.Empty)
             {
                 ValidationLabel.Content = "Vous devez choisir un mot de passe *";
                 PasswordBox.Focus();
