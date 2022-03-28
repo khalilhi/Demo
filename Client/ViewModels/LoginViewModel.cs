@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Client.ViewModels
 {
-    public class LoginViewModel
+    public class LoginViewModel : BaseViewModel
     {
         HttpClient client = new HttpClient();
         public async Task<bool> GetUser(string id, string password)
@@ -25,6 +25,11 @@ namespace Client.ViewModels
             {
                 return true;
             }
+        }
+        public void ShowMenu()
+        {
+            var menu = new Menu();
+            menu.Show();
         }
 
     }

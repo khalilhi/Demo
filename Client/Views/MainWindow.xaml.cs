@@ -52,8 +52,7 @@ namespace Client
 
             else if (res)
             {
-                var menu = new Menu();
-                menu.Show();
+                lg.ShowMenu();
                 this.Close();
             }
             else
@@ -63,24 +62,5 @@ namespace Client
                 PasswordBox.Password = "";
             }
         }
-
-        //private  async void getUser()
-        //{
-        //    var responce = await  client.GetStringAsync("https://localhost:44348/Utilisateur?id="+textBoxUser.Text);
-        //    var User = JsonConvert.DeserializeObject<List<Utilisateur>>(responce);
-        //    //ValidationLabel.Content = User[0].FirstName;
-        //    if (User.Count==0 || User[0].MotPasse != PasswordBox.Password)
-        //    {
-        //        ValidationLabel.Content= "Utilisateur ou mot de passe incorrect ";
-        //    }
-        //    else
-        //    {
-        //        var menu = new Menu();
-        //        menu.Show();
-        //        this.Close();
-                
-        //    }
-        //}
-
     }
 }
