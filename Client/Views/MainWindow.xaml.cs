@@ -48,7 +48,6 @@ namespace Client
                 ValidationLabel.Content = "Vous devez choisir un mot de passe *";
                 PasswordBox.Focus();
             }
-
             else if (res)
             {
                 lg.ShowMenu();
