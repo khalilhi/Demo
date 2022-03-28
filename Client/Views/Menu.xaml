@@ -1,0 +1,61 @@
+﻿<Window x:Class="Client.Menu"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Client"
+        mc:Ignorable="d"
+        Title="Menu" Height="450" Width="800">
+    <Grid>
+        
+        <TabControl TabStripPlacement="Left" Margin="10,10,10,10" BorderBrush="Black">
+            <TabItem Header="Profil" Background="#FF8C448C" Width="200" Height="30">
+                <Grid Background="#FFE5E5E5">
+                    <TextBlock Text="Votre profil est : "  FontSize="30"></TextBlock>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Acteurs" Background="#FF8C448C" Width="200" Height="30">
+                <Grid Background="#FFE5E5E5">
+                    <TextBlock Text="Gestion des acteurs : "  FontSize="30"></TextBlock>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Editeurs" Background="#FF8C448C" Width="200" Height="30">
+                <Grid Background="#FFE5E5E5">
+                    <TextBlock Text="Gestion des éditeurs : "  FontSize="30"></TextBlock>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Utilisateurs" Background="#FF8C448C" Width="200" Height="30">
+                <Grid Background="#FFE5E5E5">
+                    <TextBlock Text="Gestion des Utilisateurs : "  FontSize="30"></TextBlock>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Livres" Background="#FF8C448C" Width="200" Height="30">
+                <Grid Background="#FFE5E5E5">
+                    <TextBlock Text="Gestion des Livres : "  FontSize="30"></TextBlock>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Mes Commandes" Background="#FF8C448C" Width="200" Height="30">
+                <Grid Background="#FFE5E5E5">
+                    <TextBlock Text="Gestion des Commandes : "  FontSize="30"></TextBlock>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Agenda" Background="#FF8C448C" Width="200" Height="30">
+                <Grid Background="#FFE5E5E5">
+                    <TextBlock Text="Agenda :"  FontSize="30"></TextBlock>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Paramétrage" Background="#FF8C448C" Width="200" Height="30">
+                <Grid Background="#FFE5E5E5">
+                    <TextBlock Text="Gestion des paramètres : "  FontSize="30"></TextBlock>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Assistance :" Background="#FF8C448C" Width="200" Height="30">
+                <Grid Background="#FFE5E5E5">
+                    <TextBlock Text="Assistance : "  FontSize="30"></TextBlock>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Se déconnecter" Background="#FF8C448C" Width="200" Height="30" Margin="0,90,0,-90">
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>
