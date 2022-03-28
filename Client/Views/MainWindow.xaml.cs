@@ -58,8 +58,8 @@ namespace Client
             else
             {
                 ValidationLabel.Content = "Utilisateur ou mot de passe incorrect ";
-                textBoxUser.Text = "";
-                PasswordBox.Password = "";
+                textBoxUser.Text = String.Empty;
+                PasswordBox.Password = String.Empty;
             }
         }
     }

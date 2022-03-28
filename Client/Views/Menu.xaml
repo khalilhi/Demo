@@ -7,55 +7,104 @@
         mc:Ignorable="d"
         Title="Menu" Height="450" Width="800">
     <Grid>
-        
         <TabControl TabStripPlacement="Left" Margin="10,10,10,10" BorderBrush="Black">
-            <TabItem Header="Profil" Background="#FF8C448C" Width="200" Height="30">
+            <TabItem Header="Profil" Background="DeepSkyBlue" Width="200" Height="30">
+                <TabItem.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </TabItem.Resources>
                 <Grid Background="#FFE5E5E5">
-                    <TextBlock Text="Votre profil est : "  FontSize="30"></TextBlock>
+                    <TextBlock Text=" Profil"  FontSize="30"  FontFamily="Cascadia Code Light" Height="50" TextAlignment="Right" VerticalAlignment="Top" HorizontalAlignment="Left"></TextBlock>
                 </Grid>
             </TabItem>
-            <TabItem Header="Acteurs" Background="#FF8C448C" Width="200" Height="30">
+            <TabItem Header="Acteurs" Background="DeepSkyBlue" Width="200" Height="30">
+                <TabItem.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </TabItem.Resources>
                 <Grid Background="#FFE5E5E5">
-                    <TextBlock Text="Gestion des acteurs : "  FontSize="30"></TextBlock>
+                    <TextBlock Text=" Gestion des acteurs "  FontSize="30"  FontFamily="Cascadia Code Light " Height="50" TextAlignment="Right" VerticalAlignment="Top" HorizontalAlignment="Left"></TextBlock>
                 </Grid>
             </TabItem>
-            <TabItem Header="Editeurs" Background="#FF8C448C" Width="200" Height="30">
+            <TabItem Header="Editeurs" Background="DeepSkyBlue" Width="200" Height="30">
+                <TabItem.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </TabItem.Resources>
                 <Grid Background="#FFE5E5E5">
-                    <TextBlock Text="Gestion des éditeurs : "  FontSize="30"></TextBlock>
+                    <TextBlock Text=" Gestion des éditeurs"  FontSize="30"  FontFamily="Cascadia Code Light" Height="50" TextAlignment="Right" VerticalAlignment="Top" HorizontalAlignment="Left"></TextBlock>
                 </Grid>
             </TabItem>
-            <TabItem Header="Utilisateurs" Background="#FF8C448C" Width="200" Height="30">
+            <TabItem Header="Utilisateurs" Background="DeepSkyBlue" Width="200" Height="30">
+                <TabItem.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </TabItem.Resources>
                 <Grid Background="#FFE5E5E5">
-                    <TextBlock Text="Gestion des Utilisateurs : "  FontSize="30"></TextBlock>
+                    <TextBlock Text=" Gestion des Utilisateurs"  FontSize="30"  FontFamily="Cascadia Code Light" Height="50" TextAlignment="Right" VerticalAlignment="Top" HorizontalAlignment="Left"></TextBlock>
                 </Grid>
             </TabItem>
-            <TabItem Header="Livres" Background="#FF8C448C" Width="200" Height="30">
+            <TabItem Header="Livres" Background="DeepSkyBlue" Width="200" Height="30">
+                <TabItem.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </TabItem.Resources>
                 <Grid Background="#FFE5E5E5">
-                    <TextBlock Text="Gestion des Livres : "  FontSize="30"></TextBlock>
+                    <TextBlock Text=" Gestion des Livres"  FontSize="30" FontFamily="Cascadia Code Light" Height="50" TextAlignment="Right" VerticalAlignment="Top" HorizontalAlignment="Left"></TextBlock>
                 </Grid>
             </TabItem>
-            <TabItem Header="Mes Commandes" Background="#FF8C448C" Width="200" Height="30">
+            <TabItem Header="Mes Commandes" Background="DeepSkyBlue" Width="200" Height="30">
+                <TabItem.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </TabItem.Resources>
                 <Grid Background="#FFE5E5E5">
-                    <TextBlock Text="Gestion des Commandes : "  FontSize="30"></TextBlock>
+                    <TextBlock Text=" Gestion des Commandes  "  FontSize="30"  FontFamily="Cascadia Code Light" Height="50" TextAlignment="Right" VerticalAlignment="Top" HorizontalAlignment="Left"></TextBlock>
                 </Grid>
             </TabItem>
-            <TabItem Header="Agenda" Background="#FF8C448C" Width="200" Height="30">
+            <TabItem Header="Agenda" Background="DeepSkyBlue" Width="200" Height="30">
+                <TabItem.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </TabItem.Resources>
                 <Grid Background="#FFE5E5E5">
-                    <TextBlock Text="Agenda :"  FontSize="30"></TextBlock>
+                    <TextBlock Text=" Agenda"  FontSize="30"  FontFamily="Cascadia Code Light" Height="50" TextAlignment="Right" VerticalAlignment="Top" HorizontalAlignment="Left"></TextBlock>
                 </Grid>
             </TabItem>
-            <TabItem Header="Paramétrage" Background="#FF8C448C" Width="200" Height="30">
+            <TabItem Header="Paramétrage" Background="DeepSkyBlue" Width="200" Height="30">
+                <TabItem.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </TabItem.Resources>
                 <Grid Background="#FFE5E5E5">
-                    <TextBlock Text="Gestion des paramètres : "  FontSize="30"></TextBlock>
+                    <TextBlock Text=" Gestion des paramètres "  FontSize="30"  FontFamily="Cascadia Code Light" Height="50" TextAlignment="Right" VerticalAlignment="Top" HorizontalAlignment="Left"></TextBlock>
                 </Grid>
             </TabItem>
-            <TabItem Header="Assistance :" Background="#FF8C448C" Width="200" Height="30">
+            <TabItem Header="Assistance" Background="DeepSkyBlue" Width="200" Height="30">
+                <TabItem.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </TabItem.Resources>
                 <Grid Background="#FFE5E5E5">
-                    <TextBlock Text="Assistance : "  FontSize="30"></TextBlock>
+                    <TextBlock Text=" Assistance"  FontSize="30"  FontFamily="Cascadia Code Light" Height="50" TextAlignment="Right" VerticalAlignment="Top" HorizontalAlignment="Left"></TextBlock>
                 </Grid>
-            </TabItem>
-            <TabItem Header="Se déconnecter" Background="#FF8C448C" Width="200" Height="30" Margin="0,90,0,-90">
             </TabItem>
         </TabControl>
+        <Button Content="Se déconnecter" Width="202"  Height="30" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="10,0,0,10" Background="DeepSkyBlue">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </Button.Resources>
+        </Button>
     </Grid>
 </Window>
