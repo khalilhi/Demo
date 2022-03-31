@@ -33,19 +33,19 @@ namespace Client
         }
         private async void Button_Click(object sender, RoutedEventArgs e)
         {
-            LoginViewModel lg = new LoginViewModel();
+            LoginViewModel lg = new();
             var id = textBoxUser.Text;
             var pass = PasswordBox.Password;
             var res = await lg.GetUser(id, pass); 
 
             if (id == string.Empty)
             {
-                ValidationLabel.Content = "Vous devez choisir un utilisateur *";
+                ValidationLabel.Content = "Vous devez choisir un utilisateur* ";
                 textBoxUser.Focus();
             }
             else if (pass == string.Empty)
             {
-                ValidationLabel.Content = "Vous devez choisir un mot de passe *";
+                ValidationLabel.Content = "Vous devez choisir un mot de passe * ";
                 PasswordBox.Focus();
             }
             else if (res)
@@ -55,7 +55,7 @@ namespace Client
             }
             else
             {
-                ValidationLabel.Content = "Utilisateur ou mot de passe incorrect ";
+                ValidationLabel.Content = "Utilisateur ou mot de passe incorrect* ";
                 textBoxUser.Text = String.Empty;
                 PasswordBox.Password = String.Empty;
             }

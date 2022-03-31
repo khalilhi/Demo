@@ -11,19 +11,28 @@ namespace Client.ViewModels
 {
     public class LoginViewModel : BaseViewModel
     {
-        HttpClient client = new HttpClient();
+        private HttpClient client = new();
+        public static Utilisateur? session = new ();
         public async Task<bool> GetUser(string id, string password)
         {
-            var responce = await client.GetStringAsync("https://localhost:44348/Utilisateur?id="+id);
+            session = null;
+            var responce = await client.GetStringAsync("https://localhost:7146/Utilisateur?id=" + id);
             var User = JsonConvert.DeserializeObject<List<Utilisateur>>(responce);
-
-            if (User.Count == 0 || User[0].MotPasse != password)
+            session = User[0];
+            try
             {
-                return false;
+                if (session==null || session.MotPasse != password)
+                {
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
             }
-            else
+            catch (Exception e)
             {
-                return true;
+                throw e;
             }
         }
         public void ShowMenu()
