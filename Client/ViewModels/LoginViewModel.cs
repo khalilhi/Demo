@@ -6,22 +6,20 @@ using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using Models;
 
 namespace Client.ViewModels
 {
-    public class LoginViewModel : BaseViewModel
+    public class LoginViewModel
     {
-        private HttpClient client = new();
-        public static Utilisateur? session = new ();
+        private HttpClient client = new HttpClient();
         public async Task<bool> GetUser(string id, string password)
         {
-            session = null;
             var responce = await client.GetStringAsync("https://localhost:44367/Utilisateur?id=" + id);
             var User = JsonConvert.DeserializeObject<List<Utilisateur>>(responce);
-            session = User[0];
             try
             {
-                if (session==null || session.MotPasse != password)
+                if (User.Count == 0 || User[0].MotPasse != password)
                 {
                     return false;
                 }
