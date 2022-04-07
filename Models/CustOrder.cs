@@ -7,8 +7,8 @@ namespace Models
     {
         public CustOrder()
         {
-            OrderHistories = new HashSet<OrderHistory>();
-            OrderLines = new HashSet<OrderLine>();
+            OrderHistory = new HashSet<OrderHistory>();
+            OrderLine = new HashSet<OrderLine>();
         }
 
         public int OrderId { get; set; }
@@ -20,7 +20,7 @@ namespace Models
         public virtual Customer Customer { get; set; }
         public virtual Address DestAddress { get; set; }
         public virtual ShippingMethod ShippingMethod { get; set; }
-        public virtual ICollection<OrderHistory> OrderHistories { get; set; }
-        public virtual ICollection<OrderLine> OrderLines { get; set; }
+        public virtual ICollection<OrderHistory> OrderHistory { get; set; }
+        public virtual ICollection<OrderLine> OrderLine { get; set; }
     }
 }

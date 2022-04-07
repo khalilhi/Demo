@@ -7,7 +7,7 @@ namespace Models
     {
         public Publisher()
         {
-            Books = new HashSet<Book>();
+            Book = new HashSet<Book>();
         }
 
         public int PublisherId { get; set; }
@@ -15,6 +15,6 @@ namespace Models
         public int? UtilisateurId { get; set; }
 
         public virtual Utilisateur Utilisateur { get; set; }
-        public virtual ICollection<Book> Books { get; set; }
+        public virtual ICollection<Book> Book { get; set; }
     }
 }

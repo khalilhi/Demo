@@ -1,5 +1,7 @@
-﻿using DAL.DBContext;
+﻿using DAL.Models;
 using Models;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace DAL.Repositories
 {
@@ -9,14 +11,14 @@ namespace DAL.Repositories
         {
             using (var context = new BookStoreContext())
             {
-                return context.Customers.ToList();
+                return context.Customer.ToList();
             }
         }
         public IEnumerable<Customer> GetCustomerByID(int id)
         {
             using (var context = new BookStoreContext())
             {
-                return context.Customers.Where(book => book.CustomerId == id).ToList();
+                return context.Customer.Where(book => book.CustomerId == id).ToList();
             }
         }
         public void AddCustomer(Customer book)
@@ -28,7 +30,7 @@ namespace DAL.Repositories
                 _book.LastName = book.LastName;
                 _book.Email = book.Email;
                 _book.UtilisateurId = book.UtilisateurId;
-                context.Customers.Add(_book);
+                context.Customer.Add(_book);
                 context.SaveChanges();
 
             }
@@ -37,8 +39,8 @@ namespace DAL.Repositories
         {
             using (var context = new BookStoreContext())
             {
-                Customer book_ = context.Customers.Where(book => book.CustomerId == id).First();
-                context.Customers.Remove(book_);
+                Customer book_ = context.Customer.Where(book => book.CustomerId == id).First();
+                context.Customer.Remove(book_);
                 context.SaveChanges();
 
 
@@ -48,7 +50,7 @@ namespace DAL.Repositories
         {
             using (var context = new BookStoreContext())
             {
-                Customer _book = context.Customers.Where(bk => bk.CustomerId == book.CustomerId).First();
+                Customer _book = context.Customer.Where(bk => bk.CustomerId == book.CustomerId).First();
                 _book.FirstName = book.FirstName;
                 _book.LastName = book.LastName;
                 _book.Email = book.Email;

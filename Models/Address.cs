@@ -7,8 +7,8 @@ namespace Models
     {
         public Address()
         {
-            CustOrders = new HashSet<CustOrder>();
-            CustomerAddresses = new HashSet<CustomerAddress>();
+            CustOrder = new HashSet<CustOrder>();
+            CustomerAddress = new HashSet<CustomerAddress>();
         }
 
         public int AddressId { get; set; }
@@ -18,7 +18,7 @@ namespace Models
         public int? CountryId { get; set; }
 
         public virtual Country Country { get; set; }
-        public virtual ICollection<CustOrder> CustOrders { get; set; }
-        public virtual ICollection<CustomerAddress> CustomerAddresses { get; set; }
+        public virtual ICollection<CustOrder> CustOrder { get; set; }
+        public virtual ICollection<CustomerAddress> CustomerAddress { get; set; }
     }
 }

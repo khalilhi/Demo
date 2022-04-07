@@ -1,6 +1,7 @@
-﻿using DAL.DBContext;
+﻿using DAL.Models;
 using Models;
-
+using System.Collections.Generic;
+using System.Linq;
 namespace DAL.Repositories
 {
     public class OrderHistoryRepository
@@ -9,14 +10,14 @@ namespace DAL.Repositories
         {
             using (var context = new BookStoreContext())
             {
-                return context.OrderHistories.ToList();
+                return context.OrderHistory.ToList();
             }
         }
         public IEnumerable<OrderHistory> GetOrderHistoryByID(int id)
         {
             using (var context = new BookStoreContext())
             {
-                return context.OrderHistories.Where(book => book.HistoryId == id).ToList();
+                return context.OrderHistory.Where(book => book.HistoryId == id).ToList();
             }
         }
         public void AddOrderHistory(OrderHistory book)
@@ -27,7 +28,7 @@ namespace DAL.Repositories
                 _book.OrderId = book.OrderId;
                 _book.StatusId = book.StatusId;
                 _book.StatusDate = book.StatusDate;
-                context.OrderHistories.Add(_book);
+                context.OrderHistory.Add(_book);
                 context.SaveChanges();
 
             }
@@ -36,8 +37,8 @@ namespace DAL.Repositories
         {
             using (var context = new BookStoreContext())
             {
-                OrderHistory book_ = context.OrderHistories.Where(book => book.HistoryId == id).First();
-                context.OrderHistories.Remove(book_);
+                OrderHistory book_ = context.OrderHistory.Where(book => book.HistoryId == id).First();
+                context.OrderHistory.Remove(book_);
                 context.SaveChanges();
 
 
@@ -47,7 +48,7 @@ namespace DAL.Repositories
         {
             using (var context = new BookStoreContext())
             {
-                OrderHistory _book = context.OrderHistories.Where(bk => bk.HistoryId == book.HistoryId).First();
+                OrderHistory _book = context.OrderHistory.Where(bk => bk.HistoryId == book.HistoryId).First();
                 _book.OrderId = book.OrderId;
                 _book.StatusId = book.StatusId;
                 _book.StatusDate = book.StatusDate;

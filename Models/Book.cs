@@ -7,8 +7,8 @@ namespace Models
     {
         public Book()
         {
-            OrderLines = new HashSet<OrderLine>();
-            Authors = new HashSet<Author>();
+            BookAuthor = new HashSet<BookAuthor>();
+            OrderLine = new HashSet<OrderLine>();
         }
 
         public int BookId { get; set; }
@@ -21,8 +21,7 @@ namespace Models
 
         public virtual BookLanguage Language { get; set; }
         public virtual Publisher Publisher { get; set; }
-        public virtual ICollection<OrderLine> OrderLines { get; set; }
-
-        public virtual ICollection<Author> Authors { get; set; }
+        public virtual ICollection<BookAuthor> BookAuthor { get; set; }
+        public virtual ICollection<OrderLine> OrderLine { get; set; }
     }
 }

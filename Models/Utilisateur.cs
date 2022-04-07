@@ -7,9 +7,9 @@ namespace Models
     {
         public Utilisateur()
         {
-            Authors = new HashSet<Author>();
-            Customers = new HashSet<Customer>();
-            Publishers = new HashSet<Publisher>();
+            Author = new HashSet<Author>();
+            Customer = new HashSet<Customer>();
+            Publisher = new HashSet<Publisher>();
         }
 
         public int Id { get; set; }
@@ -23,8 +23,8 @@ namespace Models
         public bool CanBeDeleted { get; set; }
         public bool Annuler { get; set; }
 
-        public virtual ICollection<Author> Authors { get; set; }
-        public virtual ICollection<Customer> Customers { get; set; }
-        public virtual ICollection<Publisher> Publishers { get; set; }
+        public virtual ICollection<Author> Author { get; set; }
+        public virtual ICollection<Customer> Customer { get; set; }
+        public virtual ICollection<Publisher> Publisher { get; set; }
     }
 }

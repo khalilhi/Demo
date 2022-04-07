@@ -1,6 +1,8 @@
 ﻿using DAL.Repositories;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using DAL.Models;
+using System.Collections.Generic;
 using Models;
 
 namespace API.Controllers
@@ -13,7 +15,7 @@ namespace API.Controllers
         [HttpGet]
         public IEnumerable<Address> Get(int id)
         {
-            return rep.GetAddressByID(id);
+            return (IEnumerable<Address>)rep.GetAddressByID(id);
         }
 
 

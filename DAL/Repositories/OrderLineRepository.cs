@@ -1,5 +1,7 @@
-﻿using DAL.DBContext;
+﻿using DAL.Models;
 using Models;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace DAL.Repositories
 {
@@ -9,14 +11,14 @@ namespace DAL.Repositories
         {
             using (var context = new BookStoreContext())
             {
-                return context.OrderLines.ToList();
+                return context.OrderLine.ToList();
             }
         }
         public IEnumerable<OrderLine> GetOrderLineByID(int id)
         {
             using (var context = new BookStoreContext())
             {
-                return context.OrderLines.Where(book => book.LineId == id).ToList();
+                return context.OrderLine.Where(book => book.LineId == id).ToList();
             }
         }
         public void AddOrderLine(OrderLine book)
@@ -27,7 +29,7 @@ namespace DAL.Repositories
                 _book.OrderId = book.OrderId;
                 _book.BookId = book.BookId;
                 _book.Price = book.Price;
-                context.OrderLines.Add(_book);
+                context.OrderLine.Add(_book);
                 context.SaveChanges();
 
             }
@@ -36,8 +38,8 @@ namespace DAL.Repositories
         {
             using (var context = new BookStoreContext())
             {
-                OrderLine book_ = context.OrderLines.Where(book => book.LineId == id).First();
-                context.OrderLines.Remove(book_);
+                OrderLine book_ = context.OrderLine.Where(book => book.LineId == id).First();
+                context.OrderLine.Remove(book_);
                 context.SaveChanges();
 
 
@@ -47,7 +49,7 @@ namespace DAL.Repositories
         {
             using (var context = new BookStoreContext())
             {
-                OrderLine _book = context.OrderLines.Where(bk => bk.LineId == book.LineId).First();
+                OrderLine _book = context.OrderLine.Where(bk => bk.LineId == book.LineId).First();
                 _book.OrderId = book.OrderId;
                 _book.BookId = book.BookId;
                 _book.Price = book.Price;

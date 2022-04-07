@@ -7,13 +7,13 @@ namespace Models
     {
         public ShippingMethod()
         {
-            CustOrders = new HashSet<CustOrder>();
+            CustOrder = new HashSet<CustOrder>();
         }
 
         public int MethodId { get; set; }
         public string MethodName { get; set; }
         public decimal? Cost { get; set; }
 
-        public virtual ICollection<CustOrder> CustOrders { get; set; }
+        public virtual ICollection<CustOrder> CustOrder { get; set; }
     }
 }

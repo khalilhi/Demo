@@ -1,5 +1,7 @@
-﻿using DAL.DBContext;
+﻿using DAL.Models;
 using Models;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace DAL.Repositories
 {
@@ -9,14 +11,14 @@ namespace DAL.Repositories
         {
             using (var context = new BookStoreContext())
             {
-                return context.ShippingMethods.ToList();
+                return context.ShippingMethod.ToList();
             }
         }
         public IEnumerable<ShippingMethod> GetShippingMethodByID(int id)
         {
             using (var context = new BookStoreContext())
             {
-                return context.ShippingMethods.Where(book => book.MethodId == id).ToList();
+                return context.ShippingMethod.Where(book => book.MethodId == id).ToList();
             }
         }
         public void AddShippingMethod(ShippingMethod book)
@@ -26,7 +28,7 @@ namespace DAL.Repositories
                 var _book = new ShippingMethod();
                 _book.MethodName = book.MethodName;
                 _book.Cost = book.Cost;
-                context.ShippingMethods.Add(_book);
+                context.ShippingMethod.Add(_book);
                 context.SaveChanges();
 
             }
@@ -35,8 +37,8 @@ namespace DAL.Repositories
         {
             using (var context = new BookStoreContext())
             {
-                ShippingMethod book_ = context.ShippingMethods.Where(book => book.MethodId == id).First();
-                context.ShippingMethods.Remove(book_);
+                ShippingMethod book_ = context.ShippingMethod.Where(book => book.MethodId == id).First();
+                context.ShippingMethod.Remove(book_);
                 context.SaveChanges();
 
 
@@ -46,7 +48,7 @@ namespace DAL.Repositories
         {
             using (var context = new BookStoreContext())
             {
-                ShippingMethod _book = context.ShippingMethods.Where(bk => bk.MethodId == book.MethodId).First();
+                ShippingMethod _book = context.ShippingMethod.Where(bk => bk.MethodId == book.MethodId).First();
                 _book.MethodName = book.MethodName;
                 _book.Cost = book.Cost;
                 context.SaveChanges();

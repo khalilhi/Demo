@@ -7,7 +7,7 @@ namespace Models
     {
         public Author()
         {
-            Books = new HashSet<Book>();
+            BookAuthor = new HashSet<BookAuthor>();
         }
 
         public int AuthorId { get; set; }
@@ -15,7 +15,6 @@ namespace Models
         public int? UtilisateurId { get; set; }
 
         public virtual Utilisateur Utilisateur { get; set; }
-
-        public virtual ICollection<Book> Books { get; set; }
+        public virtual ICollection<BookAuthor> BookAuthor { get; set; }
     }
 }

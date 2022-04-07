@@ -1,5 +1,7 @@
-﻿using DAL.DBContext;
+﻿using DAL.Models;
 using Models;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace DAL.Repositories
 {
@@ -9,14 +11,14 @@ namespace DAL.Repositories
         {
             using (var context = new BookStoreContext())
             {
-                return context.Books.ToList();
+                return context.Book.ToList();
             }
         }
         public IEnumerable<Book> GetBookByID(int id)
         {
             using (var context = new BookStoreContext())
             {
-                return context.Books.Where(book => book.BookId == id).ToList();
+                return context.Book.Where(book => book.BookId == id).ToList();
             }
         }
         public void AddBook(Book book)
@@ -30,7 +32,7 @@ namespace DAL.Repositories
                 _book.NumPages= book.NumPages;
                 _book.PublicationDate= book.PublicationDate;
                 _book.PublisherId= book.PublisherId;
-                context.Books.Add(_book);
+                context.Book.Add(_book);
                 context.SaveChanges();
 
             }
@@ -39,8 +41,8 @@ namespace DAL.Repositories
         {
             using (var context = new BookStoreContext())
             {
-                Book book_ = context.Books.Where(book => book.BookId == id).First();
-                context.Books.Remove(book_);
+                Book book_ = context.Book.Where(book => book.BookId == id).First();
+                context.Book.Remove(book_);
                 context.SaveChanges();
 
 
@@ -50,7 +52,7 @@ namespace DAL.Repositories
         {
             using (var context = new BookStoreContext())
             {
-                Book _book = context.Books.Where(bk => bk.BookId == book.BookId).First();
+                Book _book = context.Book.Where(bk => bk.BookId == book.BookId).First();
                 _book.Title = book.Title;
                 _book.Isbn13 = book.Isbn13;
                 _book.LanguageId = book.LanguageId;

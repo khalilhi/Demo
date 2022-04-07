@@ -1,6 +1,7 @@
-﻿using DAL.DBContext;
+﻿using DAL.Models;
 using Models;
-
+using System.Collections.Generic;
+using System.Linq;
 namespace DAL.Repositories
 {
     public class UtilisateurRepository
@@ -9,14 +10,14 @@ namespace DAL.Repositories
         {
             using (var context = new BookStoreContext())
             {
-                return context.Utilisateurs.ToList();
+                return context.Utilisateur.ToList();
             }
         }
         public IEnumerable<Utilisateur> GetUtilisateurByID(int id)
         {
             using (var context = new BookStoreContext())
             {
-                return context.Utilisateurs.Where(book => book.Id == id).ToList();
+                return context.Utilisateur.Where(book => book.Id == id).ToList();
             }
         }
         public void AddUtilisateur(Utilisateur book)
@@ -33,7 +34,7 @@ namespace DAL.Repositories
                 _book.IsHidden = book.IsHidden;
                 _book.CanBeDeleted = book.CanBeDeleted;
                 _book.Annuler = book.Annuler;
-                context.Utilisateurs.Add(_book);
+                context.Utilisateur.Add(_book);
                 context.SaveChanges();
 
             }
@@ -42,8 +43,8 @@ namespace DAL.Repositories
         {
             using (var context = new BookStoreContext())
             {
-                Utilisateur book_ = context.Utilisateurs.Where(book => book.Id == id).First();
-                context.Utilisateurs.Remove(book_);
+                Utilisateur book_ = context.Utilisateur.Where(book => book.Id == id).First();
+                context.Utilisateur.Remove(book_);
                 context.SaveChanges();
 
 
@@ -53,7 +54,7 @@ namespace DAL.Repositories
         {
             using (var context = new BookStoreContext())
             {
-                Utilisateur _book = context.Utilisateurs.Where(bk => bk.Id == book.Id).First();
+                Utilisateur _book = context.Utilisateur.Where(bk => bk.Id == book.Id).First();
                 _book.FirstName = book.FirstName;
                 _book.LastName = book.LastName;
                 _book.Tel = book.Tel;
@@ -70,7 +71,7 @@ namespace DAL.Repositories
         {
             using (var context = new BookStoreContext())
             {
-                return context.Utilisateurs.Where(book => book.FirstName == id).ToList();
+                return context.Utilisateur.Where(book => book.FirstName == id).ToList();
             }
         }
     }

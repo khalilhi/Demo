@@ -1,6 +1,7 @@
-﻿using DAL.DBContext;
+﻿using DAL.Models;
 using Models;
-
+using System.Collections.Generic;
+using System.Linq;
 namespace DAL.Repositories
 {
     public class PublisherRepository
@@ -9,14 +10,14 @@ namespace DAL.Repositories
         {
             using (var context = new BookStoreContext())
             {
-                return context.Publishers.ToList();
+                return context.Publisher.ToList();
             }
         }
         public IEnumerable<Publisher> GetPublisherByID(int id)
         {
             using (var context = new BookStoreContext())
             {
-                return context.Publishers.Where(book => book.PublisherId == id).ToList();
+                return context.Publisher.Where(book => book.PublisherId == id).ToList();
             }
         }
         public void AddPublisher(Publisher book)
@@ -26,7 +27,7 @@ namespace DAL.Repositories
                 var _book = new Publisher();
                 _book.PublisherName = book.PublisherName;
                 _book.UtilisateurId = book.UtilisateurId;
-                context.Publishers.Add(_book);
+                context.Publisher.Add(_book);
                 context.SaveChanges();
 
             }
@@ -35,8 +36,8 @@ namespace DAL.Repositories
         {
             using (var context = new BookStoreContext())
             {
-                Publisher book_ = context.Publishers.Where(book => book.PublisherId == id).First();
-                context.Publishers.Remove(book_);
+                Publisher book_ = context.Publisher.Where(book => book.PublisherId == id).First();
+                context.Publisher.Remove(book_);
                 context.SaveChanges();
 
 
@@ -46,7 +47,7 @@ namespace DAL.Repositories
         {
             using (var context = new BookStoreContext())
             {
-                Publisher _book = context.Publishers.Where(bk => bk.PublisherId == book.PublisherId).First();
+                Publisher _book = context.Publisher.Where(bk => bk.PublisherId == book.PublisherId).First();
                 _book.PublisherName = book.PublisherName;
                 _book.UtilisateurId = book.UtilisateurId;
                 context.SaveChanges();

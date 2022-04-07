@@ -16,7 +16,7 @@ namespace Client.ViewModels
         public async Task<bool> GetUser(string id, string password)
         {
             session = null;
-            var responce = await client.GetStringAsync("https://localhost:7146/Utilisateur?id=" + id);
+            var responce = await client.GetStringAsync("https://localhost:44367/Utilisateur?id=" + id);
             var User = JsonConvert.DeserializeObject<List<Utilisateur>>(responce);
             session = User[0];
             try

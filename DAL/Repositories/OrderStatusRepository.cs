@@ -1,5 +1,7 @@
-﻿using DAL.DBContext;
+﻿using DAL.Models;
 using Models;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace DAL.Repositories
 {
@@ -9,14 +11,14 @@ namespace DAL.Repositories
         {
             using (var context = new BookStoreContext())
             {
-                return context.OrderStatuses.ToList();
+                return context.OrderStatus.ToList();
             }
         }
         public IEnumerable<OrderStatus> GetOrderStatusByID(int id)
         {
             using (var context = new BookStoreContext())
             {
-                return context.OrderStatuses.Where(book => book.StatusId == id).ToList();
+                return context.OrderStatus.Where(book => book.StatusId == id).ToList();
             }
         }
         public void AddOrderStatus(OrderStatus book)
@@ -25,7 +27,7 @@ namespace DAL.Repositories
             {
                 var _book = new OrderStatus();
                 _book.StatusValue = book.StatusValue;
-                context.OrderStatuses.Add(_book);
+                context.OrderStatus.Add(_book);
                 context.SaveChanges();
 
             }
@@ -34,8 +36,8 @@ namespace DAL.Repositories
         {
             using (var context = new BookStoreContext())
             {
-                OrderStatus book_ = context.OrderStatuses.Where(book => book.StatusId == id).First();
-                context.OrderStatuses.Remove(book_);
+                OrderStatus book_ = context.OrderStatus.Where(book => book.StatusId == id).First();
+                context.OrderStatus.Remove(book_);
                 context.SaveChanges();
 
 
@@ -45,7 +47,7 @@ namespace DAL.Repositories
         {
             using (var context = new BookStoreContext())
             {
-                OrderStatus _book = context.OrderStatuses.Where(bk => bk.StatusId == book.StatusId).First();
+                OrderStatus _book = context.OrderStatus.Where(bk => bk.StatusId == book.StatusId).First();
                 _book.StatusValue = book.StatusValue;
                 context.SaveChanges();
             }

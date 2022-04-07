@@ -1,5 +1,7 @@
-﻿using DAL.DBContext;
+﻿using DAL.Models;
 using Models;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace DAL.Repositories
 {
@@ -9,14 +11,14 @@ namespace DAL.Repositories
         {
             using (var context = new BookStoreContext())
             {
-                return context.AddressStatuses.ToList();
+                return (IEnumerable<AddressStatus>)context.AddressStatus.ToList();
             }
         }
         public IEnumerable<AddressStatus> GetAddressStatusByID(int id)
         {
             using (var context = new BookStoreContext())
             {
-                return context.AddressStatuses.Where(book => book.StatusId == id).ToList();
+                return context.AddressStatus.Where(book => book.StatusId == id).ToList();
             }
         }
         public void AddAddressStatus(AddressStatus book)
@@ -26,7 +28,7 @@ namespace DAL.Repositories
                 var _book = new AddressStatus();
                 _book.StatusId = book.StatusId;
                 _book.AddressStatus1 = book.AddressStatus1;
-                context.AddressStatuses.Add(_book);
+                context.AddressStatus.Add(_book);
                 context.SaveChanges();
 
             }
@@ -35,8 +37,8 @@ namespace DAL.Repositories
         {
             using (var context = new BookStoreContext())
             {
-                AddressStatus book_ = context.AddressStatuses.Where(book => book.StatusId == id).First();
-                context.AddressStatuses.Remove(book_);
+                AddressStatus book_ = context.AddressStatus.Where(book => book.StatusId == id).First();
+                context.AddressStatus.Remove(book_);
                 context.SaveChanges();
 
 
@@ -46,7 +48,7 @@ namespace DAL.Repositories
         {
             using (var context = new BookStoreContext())
             {
-                AddressStatus _book = context.AddressStatuses.Where(bk => bk.StatusId == book.StatusId).First();
+                AddressStatus _book = context.AddressStatus.Where(bk => bk.StatusId == book.StatusId).First();
                 _book.AddressStatus1 = book.AddressStatus1;
                 context.SaveChanges();
             }

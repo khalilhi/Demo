@@ -7,12 +7,12 @@ namespace Models
     {
         public Country()
         {
-            Addresses = new HashSet<Address>();
+            Address = new HashSet<Address>();
         }
 
         public int CountryId { get; set; }
         public string CountryName { get; set; }
 
-        public virtual ICollection<Address> Addresses { get; set; }
+        public virtual ICollection<Address> Address { get; set; }
     }
 }

@@ -1,5 +1,7 @@
-﻿using DAL.DBContext;
+﻿using DAL.Models;
 using Models;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace DAL.Repositories
 {
@@ -9,14 +11,14 @@ namespace DAL.Repositories
         {
             using (var context = new BookStoreContext())
             {
-                return context.CustOrders.ToList();
+                return context.CustOrder.ToList();
             }
         }
         public IEnumerable<CustOrder> GetCustOrderByID(int id)
         {
             using (var context = new BookStoreContext())
             {
-                return context.CustOrders.Where(book => book.OrderId == id).ToList();
+                return context.CustOrder.Where(book => book.OrderId == id).ToList();
             }
         }
         public void AddCustOrder(CustOrder book)
@@ -28,7 +30,7 @@ namespace DAL.Repositories
                 _book.CustomerId = book.CustomerId;
                 _book.ShippingMethodId = book.ShippingMethodId;
                 _book.DestAddressId = book.DestAddressId;
-                context.CustOrders.Add(_book);
+                context.CustOrder.Add(_book);
                 context.SaveChanges();
 
             }
@@ -37,8 +39,8 @@ namespace DAL.Repositories
         {
             using (var context = new BookStoreContext())
             {
-                CustOrder book_ = context.CustOrders.Where(book => book.OrderId == id).First();
-                context.CustOrders.Remove(book_);
+                CustOrder book_ = context.CustOrder.Where(book => book.OrderId == id).First();
+                context.CustOrder.Remove(book_);
                 context.SaveChanges();
 
 
@@ -48,7 +50,7 @@ namespace DAL.Repositories
         {
             using (var context = new BookStoreContext())
             {
-                CustOrder _book = context.CustOrders.Where(bk => bk.OrderId == book.OrderId).First();
+                CustOrder _book = context.CustOrder.Where(bk => bk.OrderId == book.OrderId).First();
                 _book.OrderDate = book.OrderDate;
                 _book.CustomerId = book.CustomerId;
                 _book.ShippingMethodId = book.ShippingMethodId;

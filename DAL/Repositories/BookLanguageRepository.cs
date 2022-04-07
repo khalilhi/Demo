@@ -1,5 +1,7 @@
-﻿using DAL.DBContext;
+﻿using DAL.Models;
 using Models;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace DAL.Repositories
 {
@@ -9,14 +11,14 @@ namespace DAL.Repositories
         {
             using (var context = new BookStoreContext())
             {
-                return context.BookLanguages.ToList();
+                return context.BookLanguage.ToList();
             }
         }
         public IEnumerable<BookLanguage> GetLanguageByID(int id)
         {
             using (var context = new BookStoreContext())
             {
-                return context.BookLanguages.Where(book => book.LanguageId == id).ToList();
+                return context.BookLanguage.Where(book => book.LanguageId == id).ToList();
             }
         }
         public void AddLanguage(BookLanguage book)
@@ -26,7 +28,7 @@ namespace DAL.Repositories
                 var _book = new BookLanguage();
                 _book.LanguageCode = book.LanguageCode;
                 _book.LanguageName = book.LanguageName;
-                context.BookLanguages.Add(_book);
+                context.BookLanguage.Add(_book);
                 context.SaveChanges();
 
             }
@@ -35,8 +37,8 @@ namespace DAL.Repositories
         {
             using (var context = new BookStoreContext())
             {
-                BookLanguage book_ = context.BookLanguages.Where(book => book.LanguageId == id).First();
-                context.BookLanguages.Remove(book_);
+                BookLanguage book_ = context.BookLanguage.Where(book => book.LanguageId == id).First();
+                context.BookLanguage.Remove(book_);
                 context.SaveChanges();
 
 
@@ -46,7 +48,7 @@ namespace DAL.Repositories
         {
             using (var context = new BookStoreContext())
             {
-                BookLanguage _book = context.BookLanguages.Where(bk => bk.LanguageId == book.LanguageId).First();
+                BookLanguage _book = context.BookLanguage.Where(bk => bk.LanguageId == book.LanguageId).First();
                 _book.LanguageCode = book.LanguageCode;
                 _book.LanguageName = book.LanguageName;
                 context.SaveChanges();

@@ -1,5 +1,7 @@
-﻿using DAL.DBContext;
+﻿using DAL.Models;
 using Models;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace DAL.Repositories
 {
@@ -9,14 +11,14 @@ namespace DAL.Repositories
         {
             using (var context = new BookStoreContext())
             {
-                return context.Countries.ToList();
+                return context.Country.ToList();
             }
         }
         public IEnumerable<Country> GetCountryByID(int id)
         {
             using (var context = new BookStoreContext())
             {
-                return context.Countries.Where(book => book.CountryId == id).ToList();
+                return context.Country.Where(book => book.CountryId == id).ToList();
             }
         }
         public void AddCountryk(Country book)
@@ -25,7 +27,7 @@ namespace DAL.Repositories
             {
                 var _book = new Country();
                 _book.CountryName = book.CountryName;
-                context.Countries.Add(_book);
+                context.Country.Add(_book);
                 context.SaveChanges();
 
             }
@@ -34,8 +36,8 @@ namespace DAL.Repositories
         {
             using (var context = new BookStoreContext())
             {
-                Country book_ = context.Countries.Where(book => book.CountryId == id).First();
-                context.Countries.Remove(book_);
+                Country book_ = context.Country.Where(book => book.CountryId == id).First();
+                context.Country.Remove(book_);
                 context.SaveChanges();
 
 
@@ -45,7 +47,7 @@ namespace DAL.Repositories
         {
             using (var context = new BookStoreContext())
             {
-                Country _book = context.Countries.Where(bk => bk.CountryId == book.CountryId).First();
+                Country _book = context.Country.Where(bk => bk.CountryId == book.CountryId).First();
                 _book.CountryName = book.CountryName;
                 context.SaveChanges();
             }
