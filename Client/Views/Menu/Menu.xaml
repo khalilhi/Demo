@@ -6,6 +6,14 @@
         xmlns:local="clr-namespace:Client" xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation" xmlns:Telerik="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls"
         mc:Ignorable="d"
         Title="Menu" Height="450" Width="800">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary
+                    Source="/Views\Menu\Style\Styles.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="67*"/>
@@ -13,31 +21,31 @@
         </Grid.ColumnDefinitions>
         <Telerik:RadListBox Grid.Column="0" Width="200" x:Name="radListBox" HorizontalAlignment="Left">
             <telerik:RadListBoxItem >
-                <telerik:RadButton Content="Profil" Click="RadButton_Click"></telerik:RadButton>
+                <telerik:RadButton Content="Profil" Click="RadButton_Click" Style="{StaticResource MenuStyle}"></telerik:RadButton>
             </telerik:RadListBoxItem>
             <telerik:RadListBoxItem >
-                <telerik:RadButton Content="Editeurs" Click="RadButton_Click_1"></telerik:RadButton>
+                <telerik:RadButton Content="Editeurs" Click="RadButton_Click_1" Style="{StaticResource MenuStyle}"></telerik:RadButton>
             </telerik:RadListBoxItem>
             <telerik:RadListBoxItem >
-                <telerik:RadButton Content="Utilisateurs" Click="RadButton_Click_2"></telerik:RadButton>
+                <telerik:RadButton Content="Utilisateurs" Click="RadButton_Click_2" Style="{StaticResource MenuStyle}"></telerik:RadButton>
             </telerik:RadListBoxItem>
             <telerik:RadListBoxItem >
-                <telerik:RadButton Content="Livres" Click="RadButton_Click_3"></telerik:RadButton>
+                <telerik:RadButton Content="Livres" Click="RadButton_Click_3" Style="{StaticResource MenuStyle}"></telerik:RadButton>
             </telerik:RadListBoxItem>
             <telerik:RadListBoxItem >
-                <telerik:RadButton Content="Mes commandes" Click="RadButton_Click_4"></telerik:RadButton>
+                <telerik:RadButton Content="Mes commandes" Click="RadButton_Click_4" Style="{StaticResource MenuStyle}"></telerik:RadButton>
             </telerik:RadListBoxItem>
             <telerik:RadListBoxItem >
-                <telerik:RadButton Content="Agenda" Click="RadButton_Click_5"></telerik:RadButton>
+                <telerik:RadButton Content="Agenda" Click="RadButton_Click_5" Style="{StaticResource MenuStyle}"></telerik:RadButton>
             </telerik:RadListBoxItem>
             <telerik:RadListBoxItem >
-                <telerik:RadButton Content="Paramétrage" Click="RadButton_Click_6"></telerik:RadButton>
+                <telerik:RadButton Content="Paramétrage" Click="RadButton_Click_6" Style="{StaticResource MenuStyle}"></telerik:RadButton>
             </telerik:RadListBoxItem>
             <telerik:RadListBoxItem >
-                <telerik:RadButton Content="Assistance" Click="RadButton_Click_7"></telerik:RadButton>
+                <telerik:RadButton Content="Assistance" Click="RadButton_Click_7" Style="{StaticResource MenuStyle}"></telerik:RadButton>
             </telerik:RadListBoxItem>
         </Telerik:RadListBox>
-        <telerik:RadButton Content="Se déconnecter" Width="200"  Height="30" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="0,0,0,10" Background="DeepSkyBlue" Click="Button_Click">
+        <telerik:RadButton Content="Se déconnecter" Width="200"  Height="30" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="0,0,0,10" Style="{StaticResource MenuStyle}" Click="Button_Click">
         </telerik:RadButton>
         <Frame x:Name="main" NavigationUIVisibility="Hidden" Grid.Column="2"></Frame>
     </Grid>
