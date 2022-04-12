@@ -1,5 +1,4 @@
-﻿using Client.ViewModels;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,26 +10,19 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Client
+namespace Client.Views.Assistance
 {
     /// <summary>
-    /// Interaction logic for Menu.xaml
+    /// Logique d'interaction pour Assistance.xaml
     /// </summary>
-    public partial class Menu : Window
+    public partial class Assistance : Page
     {
-        public Menu()
+        public Assistance()
         {
             InitializeComponent();
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            var Menu = new MenuViewModel();
-            Menu.Logout();
-            this.Close();
-
         }
     }
 }
