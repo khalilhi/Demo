@@ -12,10 +12,15 @@ namespace API.Controllers
     {
         BookRepository rep = new BookRepository();
         [HttpGet]
-        public IEnumerable<Book> Get(int id)
+        //public IEnumerable<Book> Get(int id)
+        //{
+        //    return rep.GetBookByID(id);
+        //}
+        public IEnumerable<Book> GetAll()
         {
-            return rep.GetBookByID(id);
+            return rep.GetAllBooks();
         }
+        
 
 
         [HttpPost]

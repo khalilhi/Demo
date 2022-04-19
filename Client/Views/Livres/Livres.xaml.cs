@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Client.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,8 @@ namespace Client.Views.Livres
         public Livres()
         {
             InitializeComponent();
+            var DC = new BookViewModel();
+            base.DataContext = DC;
         }
     }
 }

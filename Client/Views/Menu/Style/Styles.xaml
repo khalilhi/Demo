@@ -5,5 +5,10 @@
     <Style x:Key="MenuStyle" TargetType="Telerik:RadButton">
         <Setter Property="Background" Value="LightCyan"/>
     </Style>
-    
+    <Style x:Key="ListItem" TargetType="Telerik:RadListBox">
+        <Setter Property="Background" Value="LightGray"/>
+    </Style>
+    <Style x:Key="Pages" TargetType="Label">
+        <Setter Property="Background" Value="Orange"/>
+    </Style>
 </ResourceDictionary>
