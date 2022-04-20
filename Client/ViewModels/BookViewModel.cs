@@ -15,7 +15,7 @@ namespace Client.ViewModels
     {
         private HttpClient client = new HttpClient();
         private ObservableCollection<Book> _Book = new ObservableCollection<Book>();
-        public ObservableCollection<Book> book_
+        public ObservableCollection<Book> book
         {
             get { return _Book; }
             set { _Book = value; RaisePropertyChanged(); }
@@ -28,16 +28,16 @@ namespace Client.ViewModels
         public async void GetBooks()
         {
             var responce = await client.GetStringAsync("https://localhost:44367/Book");
-            var book = JsonConvert.DeserializeObject<ObservableCollection<Book>>(responce);
+            book = JsonConvert.DeserializeObject<ObservableCollection<Book>>(responce);
 
-            foreach(var item in book)
-            {
-                book_.Add(item);
-                if (book_.Count>10)
-                {
-                    break;
-                }
-            }
+            //foreach(var item in book)
+            //{
+            //    book_.Add(item);
+            //    //if (book_.Count>10)
+            //    //{
+            //    //    break;
+            //    //}
+            //}
         }
     }
 }

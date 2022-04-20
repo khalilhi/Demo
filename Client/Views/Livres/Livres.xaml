@@ -41,7 +41,7 @@
             </DataTemplate>
             </Grid.Resources>
             <Label Height="100" VerticalAlignment="Top" Content="Gestion des Livres :" FontSize="30" Grid.Row="0"/>
-        <Telerik:RadListBox Grid.Row="1" ItemsSource="{Binding book_}" ItemTemplate="{StaticResource ListBoxCustomItemTemplate}" Margin="10,10,50,50" Style="{StaticResource ListItem}">
+        <Telerik:RadListBox Grid.Row="1" ItemsSource="{Binding book}" ItemTemplate="{StaticResource ListBoxCustomItemTemplate}" Margin="10,10,50,50" Style="{StaticResource ListItem}">
         </Telerik:RadListBox>
     </Grid>
 
