@@ -1,0 +1,35 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation">
+
+    <telerik:Windows8TouchTheme x:Key="TelerikDetailsTheme" />
+    <BitmapImage x:Key="MenuBarCircularEditItemBmp30" UriSource="/Images/Edit_Circular-30.png" />
+    <SolidColorBrush x:Key="AppThemeSpecialBackgroundMainColor" Color="#f3f3f4" />
+    
+
+    <Style x:Key="RadWrapPanelVirtualisationStyle" TargetType="telerik:RadWrapPanel">
+        <Setter Property="VirtualizingPanel.IsContainerVirtualizable" Value="True" />
+        <Setter Property="VirtualizingPanel.IsVirtualizing" Value="True" />
+        <Setter Property="VirtualizingPanel.VirtualizationMode" Value="Recycling" />
+        <Setter Property="VirtualizingPanel.CacheLengthUnit" Value="Page" />
+        <Setter Property="VirtualizingPanel.CacheLength" Value="2,3" />
+    </Style>
+    
+    <Style x:Key="GenericTemplateRadWrapPanel" TargetType="{x:Type telerik:RadWrapPanel}" BasedOn="{StaticResource RadWrapPanelVirtualisationStyle}">
+        <!--<Setter Property="telerik:StyleManager.Theme" Value="{StaticResource TelerikDetailsTheme}"/>-->
+    </Style>
+    
+    <Style x:Key="RadListBoxVirtualisationStyle" TargetType="telerik:RadListBox">
+        <Setter Property="VirtualizingPanel.IsContainerVirtualizable" Value="True" />
+        <Setter Property="VirtualizingPanel.IsVirtualizing" Value="True" />
+        <Setter Property="VirtualizingPanel.VirtualizationMode" Value="Recycling" />
+        <Setter Property="VirtualizingPanel.CacheLengthUnit" Value="Page" />
+        <Setter Property="VirtualizingPanel.CacheLength" Value="2,3" />
+    </Style>
+
+
+    <Style x:Key="GenericTemplateRadListBox" TargetType="{x:Type telerik:RadListBox}" BasedOn="{StaticResource RadListBoxVirtualisationStyle}">
+        <Setter Property="telerik:StyleManager.Theme" Value="{StaticResource TelerikDetailsTheme}"/>
+    </Style>
+    
+</ResourceDictionary>

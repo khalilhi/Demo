@@ -14,11 +14,21 @@ namespace Client.ViewModels
     class BookViewModel : ViewModelBase
     {
         private HttpClient client = new HttpClient();
-        private ObservableCollection<Book> _Book = new ObservableCollection<Book>();
-        public ObservableCollection<Book> book
+
+        private BookDto _selectedBook;
+
+        public BookDto SelectedBook
         {
-            get { return _Book; }
-            set { _Book = value; RaisePropertyChanged(); }
+            get { return _selectedBook; }
+            set { _selectedBook = value; }
+        }
+
+
+        private ObservableCollection<BookDto> _Books = new ObservableCollection<BookDto>();
+        public ObservableCollection<BookDto> books
+        {
+            get { return _Books; }
+            set { _Books = value; RaisePropertyChanged(); }
         }
         public BookViewModel()
         {
@@ -28,7 +38,7 @@ namespace Client.ViewModels
         public async void GetBooks()
         {
             var responce = await client.GetStringAsync("https://localhost:44367/Book");
-            book = JsonConvert.DeserializeObject<ObservableCollection<Book>>(responce);
+            books = JsonConvert.DeserializeObject<ObservableCollection<BookDto>>(responce);
 
             //foreach(var item in book)
             //{

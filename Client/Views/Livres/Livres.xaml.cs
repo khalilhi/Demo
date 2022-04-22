@@ -27,5 +27,10 @@ namespace Client.Views.Livres
             var DC = new BookViewModel();
             base.DataContext = DC;
         }
+
+        private void Edit_OnClick(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

@@ -16,7 +16,7 @@ namespace API.Controllers
         //{
         //    return rep.GetBookByID(id);
         //}
-        public IEnumerable<Book> GetAll()
+        public IEnumerable<BookDto> GetAll()
         {
             return rep.GetAllBooks();
         }
@@ -24,7 +24,7 @@ namespace API.Controllers
 
 
         [HttpPost]
-        public void add(Book _book)
+        public void add(BookDto _book)
         {
             rep.AddBook(_book);
         }
@@ -36,7 +36,7 @@ namespace API.Controllers
             rep.RemoveBook(id);
         }
         [HttpPut]
-        public void Update(Book book)
+        public void Update(BookDto book)
         {
             rep.UpdateBook(book);
         }

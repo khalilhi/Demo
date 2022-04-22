@@ -1,8 +1,11 @@
 ﻿using DAL.Repositories;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Models;
+using DAL.Models;
 using System.Collections.Generic;
+using Models.LoginModel;
+using Models;
+using System.Threading.Tasks;
 
 namespace API.Controllers
 {
@@ -36,10 +39,18 @@ namespace API.Controllers
         {
             rep.UpdateUtilisateur(book);
         }
+
         [HttpGet]
-        public IEnumerable<Utilisateur> GetByname(string id)
+        public Task<UtilisateurDto> GetByname(string firstName)
         {
-            return rep.GetUtilisateurByIname(id);
+            return rep.GetUtilisateurByIname(firstName);
+        }
+
+        [HttpPost]
+         [Route("authUser")]
+        public Task<UtilisateurDto> GetByname(RequestUserAuth requestedItem)
+        {
+            return rep.GetUtilisateurByIname(requestedItem);
         }
     }
 }

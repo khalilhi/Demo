@@ -3,7 +3,8 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:Client.Views.Livres" xmlns:Telerik="http://schemas.telerik.com/2008/xaml/presentation"
+      xmlns:local="clr-namespace:Client.Views.Livres" 
+    xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
       xmlns:ViewModels="clr-namespace:Client.ViewModels" x:Class="Client.Views.Livres.Livres"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
@@ -21,10 +22,10 @@
     </Page.Resources>
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="50*"/>
-            <RowDefinition Height="197*"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <Grid.Resources>
+        <!--<Grid.Resources>
             <DataTemplate x:Key="ListBoxCustomItemTemplate">
                 <Grid>
                     <Grid.ColumnDefinitions>
@@ -39,10 +40,56 @@
                     <Label Content="{Binding NumPages}" Grid.Column="3"  Style="{StaticResource Pages}" MinWidth="30"></Label> 
                 </Grid>
             </DataTemplate>
-            </Grid.Resources>
+            </Grid.Resources>-->
             <Label Height="100" VerticalAlignment="Top" Content="Gestion des Livres :" FontSize="30" Grid.Row="0"/>
-        <Telerik:RadListBox Grid.Row="1" ItemsSource="{Binding book}" ItemTemplate="{StaticResource ListBoxCustomItemTemplate}" Margin="10,10,50,50" Style="{StaticResource ListItem}">
-        </Telerik:RadListBox>
+        <!--<Telerik:RadListBox Grid.Row="1" ItemsSource="{Binding book}" ItemTemplate="{StaticResource ListBoxCustomItemTemplate}" Margin="10,10,50,50" Style="{StaticResource ListItem}">
+        </Telerik:RadListBox>-->
+        <telerik:RadListBox x:Name="RadListBoxItems" Grid.Row="1" Grid.Column="0" 
+                                                Style="{StaticResource RadItemRadListBoxStyle}">
+
+            <telerik:RadListBox.ItemTemplate>
+                <DataTemplate>
+
+                    <Grid Style="{StaticResource GridMainItemLayout}">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+
+                        <Image Style="{StaticResource BookImageStyle}" />
+
+                        <TextBlock Grid.Row="1" Style="{StaticResource BookNameTextStyle}"/>
+
+                        <telerik:RadListBox x:Name="AuthorList" Grid.Row="2" HorizontalAlignment="Right" ItemsSource="{Binding Authors}">
+                            <telerik:RadListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock Style="{StaticResource AuthorNameTextStyle}"/>
+                                </DataTemplate> 
+                            </telerik:RadListBox.ItemTemplate>
+                        </telerik:RadListBox>
+                        <TextBlock Grid.Row="1" Style="{StaticResource BookNameTextStyle}"/>
+
+                        <Border x:Name="EditPanel" Grid.Row="3" Style="{StaticResource BorderEditPanel}">
+
+                            <DockPanel LastChildFill="False">
+                                <Image Style="{StaticResource FlagImageStyle}" DockPanel.Dock="Left" />
+                                <telerik:RadButton DockPanel.Dock="Right" Click="Edit_OnClick" Style="{StaticResource WaveStyleEditRadButton}">
+                                    <telerik:RadButton.Content>
+                                        <ContentControl Template="{StaticResource EditBtn}"/>
+                                    </telerik:RadButton.Content>
+                                </telerik:RadButton>
+
+                            </DockPanel>
+                        </Border>
+
+                    </Grid>
+
+                </DataTemplate>
+            </telerik:RadListBox.ItemTemplate>
+        </telerik:RadListBox>
     </Grid>
 
 </Page>

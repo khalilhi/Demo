@@ -13,14 +13,14 @@ namespace API.Controllers
     {
         AdressRepository rep = new AdressRepository();
         [HttpGet]
-        public IEnumerable<Address> Get(int id)
+        public IEnumerable<DAL.Models.Address> Get(int id)
         {
-            return (IEnumerable<Address>)rep.GetAddressByID(id);
+            return (IEnumerable<DAL.Models.Address>)rep.GetAddressByID(id);
         }
 
 
         [HttpPost]
-        public void add(Address _book)
+        public void add(DAL.Models.Address _book)
         {
             rep.AddAddress(_book);
         }
@@ -32,7 +32,7 @@ namespace API.Controllers
             rep.RemoveAddress(id);
         }
         [HttpPut]
-        public void Update(Address book)
+        public void Update(DAL.Models.Address book)
         {
             rep.UpdateAddress(book);
         }

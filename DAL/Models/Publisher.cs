@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Models
+namespace DAL.Models
 {
     public partial class Publisher
     {

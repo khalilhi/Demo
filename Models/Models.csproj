@@ -41,23 +41,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Address.cs" />
-    <Compile Include="AddressStatus.cs" />
-    <Compile Include="Author.cs" />
-    <Compile Include="Book.cs" />
-    <Compile Include="BookAuthor.cs" />
-    <Compile Include="BookLanguage.cs" />
-    <Compile Include="Country.cs" />
-    <Compile Include="Customer.cs" />
-    <Compile Include="CustomerAddress.cs" />
-    <Compile Include="CustOrder.cs" />
-    <Compile Include="OrderHistory.cs" />
-    <Compile Include="OrderLine.cs" />
-    <Compile Include="OrderStatus.cs" />
+    <Compile Include="AddressDto.cs" />
+    <Compile Include="AddressStatusDto.cs" />
+    <Compile Include="AuthorDto.cs" />
+    <Compile Include="BookDto.cs" />
+    <Compile Include="BookAuthorDto.cs" />
+    <Compile Include="BookLanguageDto.cs" />
+    <Compile Include="Common\AbstractCusomModelNotifyBase.cs" />
+    <Compile Include="CountryDto.cs" />
+    <Compile Include="CustomerDto.cs" />
+    <Compile Include="CustomerAddressDto.cs" />
+    <Compile Include="CustOrderDto.cs" />
+    <Compile Include="LoginModel\RequestUserAuth.cs" />
+    <Compile Include="OrderHistoryDto.cs" />
+    <Compile Include="OrderLineDto.cs" />
+    <Compile Include="OrderStatusDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Publisher.cs" />
-    <Compile Include="ShippingMethod.cs" />
-    <Compile Include="Utilisateur.cs" />
+    <Compile Include="PublisherDto.cs" />
+    <Compile Include="ShippingMethodDto.cs" />
+    <Compile Include="UtilisateurDto.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

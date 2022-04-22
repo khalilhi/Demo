@@ -1,7 +1,11 @@
 ﻿using DAL.Models;
+using Microsoft.EntityFrameworkCore;
 using Models;
+using Models.LoginModel;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
+
 namespace DAL.Repositories
 {
     public class UtilisateurRepository
@@ -67,11 +71,56 @@ namespace DAL.Repositories
                 context.SaveChanges();
             }
         }
-        public IEnumerable<Utilisateur> GetUtilisateurByIname(string id)
+
+        public async Task<UtilisateurDto> GetUtilisateurByIname(string firstname)
         {
             using (var context = new BookStoreContext())
             {
-                return context.Utilisateur.Where(book => book.FirstName == id).ToList();
+                var result =  await context.Utilisateur.Where(user => user.FirstName == firstname 
+               )
+                    .Select (u=> new UtilisateurDto
+                    {
+                        Id = u.Id,
+                        FirstName = u.FirstName,
+                        LastName = u.LastName,
+                        Tel = u.Tel,
+                        Email = u.Email,
+                        IsRealPerson = u.IsRealPerson,
+                        IsHidden = u.IsHidden,
+                        CanBeDeleted = u.CanBeDeleted, 
+                        Annuler = u.Annuler
+
+                    }
+                    )   
+                    .FirstOrDefaultAsync();
+
+                return result;
+            }
+        }
+
+        public async Task<UtilisateurDto> GetUtilisateurByIname(RequestUserAuth requestedItem)
+        {
+            using (var context = new BookStoreContext())
+            {
+                var result =  await context.Utilisateur.Where(user => user.FirstName == requestedItem.FirstName 
+                && user.MotPasse ==requestedItem.Password )
+                    .Select (u=> new UtilisateurDto
+                    {
+                        Id = u.Id,
+                        FirstName = u.FirstName,
+                        LastName = u.LastName,
+                        Tel = u.Tel,
+                        Email = u.Email,
+                        IsRealPerson = u.IsRealPerson,
+                        IsHidden = u.IsHidden,
+                        CanBeDeleted = u.CanBeDeleted, 
+                        Annuler = u.Annuler
+
+                    }
+                    )   
+                    .FirstOrDefaultAsync();
+
+                return result;
             }
         }
     }
