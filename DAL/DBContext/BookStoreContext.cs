@@ -1,7 +1,6 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
-using Models;
 
 namespace DAL.Models
 {
@@ -21,6 +20,7 @@ namespace DAL.Models
         public virtual DbSet<Author> Author { get; set; }
         public virtual DbSet<Book> Book { get; set; }
         public virtual DbSet<BookAuthor> BookAuthor { get; set; }
+        public virtual DbSet<BookCategory> BookCategory { get; set; }
         public virtual DbSet<BookLanguage> BookLanguage { get; set; }
         public virtual DbSet<Country> Country { get; set; }
         public virtual DbSet<CustOrder> CustOrder { get; set; }
@@ -38,7 +38,7 @@ namespace DAL.Models
             if (!optionsBuilder.IsConfigured)
             {
                 //#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
-                optionsBuilder.UseSqlServer("Server=DESKTOP-FCQ1CUH\\SQLEXPRESS; Database=BookStore; Trusted_Connection=True;");
+                optionsBuilder.UseSqlServer("Server=.\\SQLEXPRESS; Database=BookStore; Trusted_Connection=True;");
             }
         }
 
@@ -119,6 +119,8 @@ namespace DAL.Models
                     .HasColumnName("book_id")
                     .ValueGeneratedNever();
 
+                entity.Property(e => e.CategoryId).HasColumnName("categoryId");
+
                 entity.Property(e => e.Isbn13)
                     .HasColumnName("isbn13")
                     .HasMaxLength(13)
@@ -127,6 +129,8 @@ namespace DAL.Models
                 entity.Property(e => e.LanguageId).HasColumnName("language_id");
 
                 entity.Property(e => e.NumPages).HasColumnName("num_pages");
+
+                entity.Property(e => e.Price).HasColumnName("Price").HasColumnType("decimal(18, 2)");
 
                 entity.Property(e => e.PublicationDate)
                     .HasColumnName("publication_date")
@@ -138,6 +142,11 @@ namespace DAL.Models
                     .HasColumnName("title")
                     .HasMaxLength(400)
                     .IsUnicode(false);
+
+                entity.HasOne(d => d.Category)
+                    .WithMany(p => p.Book)
+                    .HasForeignKey(d => d.CategoryId)
+                    .HasConstraintName("fk_book_Cat");
 
                 entity.HasOne(d => d.Language)
                     .WithMany(p => p.Book)
@@ -172,6 +181,31 @@ namespace DAL.Models
                     .HasForeignKey(d => d.BookId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("fk_ba_book");
+            });
+
+            modelBuilder.Entity<BookCategory>(entity =>
+            {
+                entity.HasKey(e => e.CategoryId)
+                    .HasName("pk_book1");
+
+                entity.Property(e => e.CategoryId)
+                    .HasColumnName("categoryId")
+                    .ValueGeneratedNever();
+
+                entity.Property(e => e.BckgroundColor)
+                    .HasColumnName("bckgroundColor")
+                    .HasMaxLength(20)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.CategoryCode)
+                    .HasColumnName("category_code")
+                    .HasMaxLength(8)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.CategoryName)
+                    .HasColumnName("category_name")
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
             });
 
             modelBuilder.Entity<BookLanguage>(entity =>

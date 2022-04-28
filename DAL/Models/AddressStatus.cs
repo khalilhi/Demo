@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 
 namespace DAL.Models
-{ 
+{
     public partial class AddressStatus
     {
         public int StatusId { get; set; }

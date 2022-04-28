@@ -1,0 +1,24 @@
+﻿<Window x:Class="Client.Views.Livres.BookManagment"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Client.Views.Livres" xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+        mc:Ignorable="d"
+        Title="BookManagment" Height="450" Width="800">
+    <Grid >
+        <Label Content="Gestion des Livres : " FontSize="33" Height="50" HorizontalAlignment="Left" VerticalAlignment="Top"></Label>
+        <Grid Margin="10,50,10,0">
+            <StackPanel>
+                <Label Content="Ttile : " FontSize="20" Height="50" HorizontalAlignment="Left" VerticalAlignment="Top"></Label>
+                <telerik:RadWatermarkTextBox Height="30" Width="200" HorizontalAlignment="Left" Text="{Binding SelectedBook.Title , Mode=TwoWay}"></telerik:RadWatermarkTextBox>
+                <Label Content="Author : " FontSize="20" Height="50" HorizontalAlignment="Left" ></Label>
+                <telerik:RadWatermarkTextBox Height="30" Width="200" HorizontalAlignment="Left" Text="{Binding SelectedBook.PublicationDate , Mode=TwoWay}" ></telerik:RadWatermarkTextBox>
+                <Label Content="Publisher : " FontSize="20" Height="50" HorizontalAlignment="Left"></Label>
+                <telerik:RadWatermarkTextBox Height="30" Width="200" HorizontalAlignment="Left" Text="{Binding SelectedBook.PublisherName , Mode=TwoWay}"></telerik:RadWatermarkTextBox>
+                <Label Content="Price : " FontSize="20" Height="50" HorizontalAlignment="Left"></Label>
+                <telerik:RadWatermarkTextBox Height="30" Width="200" HorizontalAlignment="Left" Text="{Binding SelectedBook.Price , Mode=TwoWay}"></telerik:RadWatermarkTextBox>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Window>

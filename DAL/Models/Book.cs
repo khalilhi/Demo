@@ -18,7 +18,10 @@ namespace DAL.Models
         public int? NumPages { get; set; }
         public DateTime? PublicationDate { get; set; }
         public int? PublisherId { get; set; }
+        public int? CategoryId { get; set; }
+        public decimal? Price { get; set; }
 
+        public virtual BookCategory Category { get; set; }
         public virtual BookLanguage Language { get; set; }
         public virtual Publisher Publisher { get; set; }
         public virtual ICollection<BookAuthor> BookAuthor { get; set; }

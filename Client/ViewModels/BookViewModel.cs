@@ -20,7 +20,7 @@ namespace Client.ViewModels
         public BookDto SelectedBook
         {
             get { return _selectedBook; }
-            set { _selectedBook = value; }
+            set { _selectedBook = value; RaisePropertyChanged(); }
         }
 
 

@@ -26,6 +26,7 @@ namespace DAL.Repositories
                                           Isbn13 = bk.Isbn13,
                                           NumPages = bk.NumPages,
                                           LanguageId = bk.LanguageId,
+                                          Price = (decimal)bk.Price,
                                           LanguageCode = bk.Language == null ? string.Empty : bk.Language.LanguageCode,
                                           Authors = bk.BookAuthor.Select(ba=> ba.Author).Select(auth=> new AuthorDto()
                                                     {

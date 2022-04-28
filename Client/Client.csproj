@@ -147,6 +147,9 @@
     <Compile Include="Views\Editeur\Editeur.xaml.cs">
       <DependentUpon>Editeur.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Livres\BookManagment.xaml.cs">
+      <DependentUpon>BookManagment.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Livres\Livres.xaml.cs">
       <DependentUpon>Livres.xaml</DependentUpon>
     </Compile>
@@ -214,6 +217,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Editeur\Editeur.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Livres\BookManagment.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

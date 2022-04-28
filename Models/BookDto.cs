@@ -208,6 +208,27 @@ namespace Models
                 OnPropertyChanged();
             }
         }
+        private decimal _Price;
+        public decimal Price
+        {
+            get
+            {
+                return _Price;
+            }
+
+            set
+            {
+                if (Equals(_Price, value))
+                {
+                    return;
+                }
+
+                _Price = value;
+                OnPropertyChanged();
+            }
+        }
+
+
 
         //public Book()
         //{
